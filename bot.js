@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 
-const TOKEN = "MzM5ODYwNzY0MTMzMTYzMDIy.DQQldw.X66UD00L_STRMs3SwZRoFhTjf3o";
 const PREFIX = "!";
-const BOTNAME = "IntoBot";
 
 var client = new Discord.Client();
 
