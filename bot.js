@@ -45,7 +45,7 @@ client.on("message", function(message) {
             message.channel.send("Szia! Elérhető parancsok:\n- !help\n- !ping");
             break;
         default:
-            message.channel.send("Ez a parancs nem létezik");
+            message.channel.send("Ez a parancs nem létezik! !help");
                         
     }
 });
