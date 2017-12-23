@@ -109,15 +109,12 @@ client.on("message", message => {
         message.channel.send("Engem galosik készített!");
     }
     if (msg.startsWith(PREFIX + 'parancsok')){
-        message.channel.send("Üdvözöllek!\nPrefix: "+ PREFIX + "\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- szerver(A szerverről)\n- parancsok(Parancs lista)");
+        message.channel.send("Üdvözöllek!\nPrefix: "+ PREFIX + "\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)");
     }
 
     if (msg.includes('anyád') || msg.includes('geci') || msg.includes('büdös') || msg.includes('kurva') || msg.includes('meleg') || msg.includes('fasz') || msg.includes('köcsög') || msg.includes('buzi') || msg.includes('fuck') || msg.includes('homár') || msg.includes('4ny4d')  || msg.includes('homo')  || msg.includes('cigány')){
         message.delete();
         message.channel.send(`Töröltem ${sender} üzenetét! Indok: Káromkodás`);      
-    }
-    else if (msg.includes('csá') || msg.includes('szia') || msg.includes('cső') || msg.includes('szevasz')){
-        message.channel.send(`Szia, ${sender}!`);      
     }
     else if (msg.includes('intobot')){
         message.channel.send(`Igen, én vagyok! Esetleg szeretnél tőlem valamit ${sender}? Mert akkor: .parancsok`);      
