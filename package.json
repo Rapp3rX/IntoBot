@@ -6,9 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rapp3rX",
+  "author": "galosik",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord.js": "^11.2.1",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.4",
+    "request": "^2.83.0",
+    "ytdl-core": "^0.18.3"
   }
 }
