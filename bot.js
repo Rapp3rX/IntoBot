@@ -135,7 +135,7 @@ client.on('message', message => {
             .catch(err => {
                 console.log(err.response.data);
                 if (err.response && err.response.data.message === 'API rate limit exceeded') {
-                    return message.channel.send('Túl sok GIF-et kértek tőlem... :frown: ');
+                    return message.channel.send('Túl sok GIF-et kértek tőlem... :frowning: ');
                 }
                 return message.channel.send('Egy váratlan hiba történt...');
             });
