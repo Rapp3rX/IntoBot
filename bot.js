@@ -111,6 +111,10 @@ client.on("message", message => {
     if (msg.startsWith(PREFIX + 'parancsok')){
         message.channel.send("Üdvözöllek!\nPrefix: "+ PREFIX + "\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)");
     }
+    if (msg.startsWith(PREFIX + 'zhjegy')){
+        var a = Math.floor(Math.random() * 5)+1;
+        message.channel.send("Biztos vagyok benne "+sender+", hogy a ZHdat meg fogot tudni írni "+a+"-re!");
+    }
 
     if (msg.startsWith('xd')){
         var a = Math.floor(Math.random() * 3);
