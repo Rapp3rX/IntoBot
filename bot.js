@@ -170,9 +170,9 @@ client.on('message', message => {
 
     if (message.isMentioned(client.user)) {
          var texts = [
-            `Igen, én vagyok! Esetleg szeretnél tőlem valamit ${sender}? Mert akkor: .parancsok`,
-            `Szép napunk van, nem igaz ${sender}?`,
-            'Hívtál ${sender}? Mit szeretnél?'
+            'Igen, én vagyok! Esetleg szeretnél tőlem valamit '+sender+'? Mert akkor: .parancsok',
+            'Szép napunk van, nem igaz '+sender+'?',
+            'Hívtál '+sender+'? Mit szeretnél?'
         ];
         
         const a = Math.floor(Math.random() * texts.length);
