@@ -121,7 +121,7 @@ client.on('message', message => {
     }
 
     if (msg.startsWith(PREFIX + 'parancsok')){
-        message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)`);
+        message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)\n - gif`);
     }
 
     if (msg.startsWith(PREFIX + 'zhjegy')){
