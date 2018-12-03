@@ -123,7 +123,7 @@ client.on('message', message => {
         message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)\n - gif`);
     }
 
-    if (msg.startsWith(PREFIX + 'zhjegy')){
+    if (msg.startsWith(PREFIX + 'zhjegy')) {
         const a = Math.floor(Math.random() * 5) + 1;
         const suffix = a === 3 ? 'ra' : 're';
         message.channel.send(`Biztos vagyok benne ${ sender }, hogy a ZH-dat meg fogod tudni írni ${ a }-${ suffix }!`);
@@ -139,6 +139,14 @@ client.on('message', message => {
                 }
                 return message.channel.send('Egy váratlan hiba történt...');
             });
+    }
+
+    if (msg.startsWith(PREFIX + 'gayrate')) {
+        const random = Math.floor(Math.random() * 10) + 1;
+        if (args[0]) {
+            return message.channel.send(`${ args[0] } gayrate-je **${ random }/10.`);
+        }
+        return message.channel.send(`A gayrate-ed ${ random }/10.`);
     }
     
     if (msg.startsWith('xd')) {
