@@ -132,7 +132,13 @@ client.on('message', message => {
     if (msg.startsWith(PREFIX + 'gif')){
         Giphy(args[0], process.env.GIPHY_KEY)
             .then(res => message.channel.send(res))
-            .catch(() => message.channel.send('Sajnos valamilyen hiba történt...'));
+            .catch(err => {
+                console.log(err.response.data);
+                if (err.response && err.response.data.message === 'API rate limit exceeded') {
+                    return message.channel.send('Túl sok GIF-et kértek tőlem... :frown: ');
+                }
+                return message.channel.send('Egy váratlan hiba történt...');
+            });
     }
     
     if (msg.startsWith('xd')) {
