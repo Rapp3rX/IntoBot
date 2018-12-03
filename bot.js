@@ -167,6 +167,13 @@ client.on('message', message => {
         message.delete();
         message.channel.send(`Töröltem ${ sender } üzenetét! Indok: Káromkodás`);
     }
+    
+    
+    const helloWords = [ 'lelép', 'good night',' jó8', 'jóccakát'];
+
+    if (helloWords.some(h => msg.indexOf(h) >= 0)) {
+        message.channel.send(`Szép estét neked is ${ sender }!`);
+    }
 
     if (message.isMentioned(client.user)) {
          var texts = [
