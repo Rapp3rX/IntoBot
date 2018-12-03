@@ -9,6 +9,7 @@
   "author": "galosik",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "discord.js": "^11.2.1",
     "ffmpeg": "0.0.4",
     "opusscript": "0.0.4",

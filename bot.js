@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
-const http = require("http");
-
+const Giphy = require('./lib/giphy');
 
 const PREFIX = '.';
 
@@ -131,28 +130,9 @@ client.on('message', message => {
     }
     
     if (msg.startsWith(PREFIX + 'gif')){
-
-        let term = encodeURIComponent(args[0]);
-        // PUT THE SEARCH TERM INTO THE GIPHY API SEARCH URL
-        let url = 'http://api.giphy.com/v1/gifs/search?q=' + term + '&api_key=0u6k05ezlWSU0U3YJ2PzkqgsV1riajvQ&limit=1&lang=hu';
-        http.get(url, (response) => {
-            // SET ENCODING OF RESPONSE TO UTF8
-            response.setEncoding('utf8');
-            let body = '';
-            // listens for the event of the data buffer and stream
-            response.on('data', (d) => {
-                // CONTINUOUSLY UPDATE STREAM WITH DATA FROM GIPHY
-                 body += d;
-            });
-            // once it gets data it parses it into json 
-            response.on('end', () => {
-                // WHEN DATA IS FULLY RECEIVED PARSE INTO JSON
-                var data = JSON.parse(body);
-                if(data.data != undefined && data.data[0] != undefined && data.data[0].images != undefined){
-                    message.channel.send(data.data[0].images.original_still.url);
-                }
-            });
-        });
+        Giphy(args[0], process.env.GIPHY_KEY)
+            .then(res => message.channel.send(res))
+            .catch(() => message.channel.send('Sajnos valamilyen hiba történt...'));
     }
     
     if (msg.startsWith('xd')) {
