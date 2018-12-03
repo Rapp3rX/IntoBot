@@ -154,8 +154,8 @@ client.on('message', message => {
         message.channel.send(`Töröltem ${ sender } üzenetét! Indok: Káromkodás`);
     }
 
-    if (msg.includes('intobot')){
-        message.channel.send(`Igen, én vagyok! Esetleg szeretnél tőlem valamit ${sender}? Mert akkor: .parancsok`);      
+    if (message.isMentioned(client.user)) {
+        message.channel.send(`Igen, én vagyok! Esetleg szeretnél tőlem valamit ${sender}? Mert akkor: .parancsok`);
     }
 });
 
