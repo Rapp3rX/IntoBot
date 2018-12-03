@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
+const http = require("http");
+
 
 const PREFIX = '.';
 
@@ -127,7 +129,32 @@ client.on('message', message => {
         const suffix = a === 3 ? 'ra' : 're';
         message.channel.send(`Biztos vagyok benne ${ sender }, hogy a ZH-dat meg fogod tudni írni ${ a }-${ suffix }!`);
     }
+    
+    if (msg.startsWith(PREFIX + 'gif')){
 
+        let term = encodeURIComponent(args[0]);
+        // PUT THE SEARCH TERM INTO THE GIPHY API SEARCH URL
+        let url = 'http://api.giphy.com/v1/gifs/search?q=' + term + '&api_key=0u6k05ezlWSU0U3YJ2PzkqgsV1riajvQ&limit=1&lang=hu';
+        http.get(url, (response) => {
+            // SET ENCODING OF RESPONSE TO UTF8
+            response.setEncoding('utf8');
+            let body = '';
+            // listens for the event of the data buffer and stream
+            response.on('data', (d) => {
+                // CONTINUOUSLY UPDATE STREAM WITH DATA FROM GIPHY
+                 body += d;
+            });
+            // once it gets data it parses it into json 
+            response.on('end', () => {
+                // WHEN DATA IS FULLY RECEIVED PARSE INTO JSON
+                var data = JSON.parse(body);
+                if(data.data != undefined && data.data[0] != undefined && data.data[0].images != undefined){
+                    message.channel.send(data.data[0].images.original_still.url);
+                }
+            });
+        });
+    }
+    
     if (msg.startsWith('xd')) {
         const gifs = [
             'https://media1.tenor.com/images/dc74818034bdeb1cb1c8c136fb675ecf/tenor.gif?itemid=4519855',
