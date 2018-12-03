@@ -112,7 +112,18 @@ client.on("message", message => {
         message.channel.send("Üdvözöllek!\nPrefix: "+ PREFIX + "\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)");
     }
 
-    if (msg.includes('anyád') || msg.includes('geci') || msg.includes('büdös') || msg.includes('kurva') || msg.includes('meleg') || msg.includes('fasz') || msg.includes('köcsög') || msg.includes('buzi') || msg.includes('fuck') || msg.includes('homár') || msg.includes('4ny4d')  || msg.includes('homo')  || msg.includes('cigány')){
+    if (msg.startsWith('xd')){
+        var a = Math.floor(Math.random() * 3);
+        if(a==0){
+            message.channel.send(`https://media1.tenor.com/images/dc74818034bdeb1cb1c8c136fb675ecf/tenor.gif?itemid=4519855`);
+        }else if(a==1){
+            message.channel.send(`https://media.tenor.com/images/3372a43626ac121c4a7f9b7306e95e75/tenor.gif`);
+        }else{
+            message.channel.send(`https://media.tenor.com/images/79afccd586f910ac9af99f14f009eb4e/tenor.gif`);
+        }
+    }
+    
+    if (msg.includes('anyád') || msg.includes('geci') || msg.includes('kurva') || msg.includes('fasz') || msg.includes('köcsög') || msg.includes('buzi') || msg.includes('fuck') || msg.includes('4ny4d')  || msg.includes('homo')  || msg.includes('cigány')){
         message.delete();
         message.channel.send(`Töröltem ${sender} üzenetét! Indok: Káromkodás`);      
     }
