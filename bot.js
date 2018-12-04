@@ -151,7 +151,10 @@ client.on('message', message => {
     }
 
     if (msg.startsWith(PREFIX + 'gayrate')) {
-        const random = Math.floor(Math.random() * 10);
+        const random2 = Math.floor(Math.random() * 11);
+        const a = (random2==1) ? 40 : 11;
+        a = (random2==2) ? 2 : a;
+        const random = Math.floor(Math.random() * a);
         if (args[0]) {
             return message.channel.send(`${ args[0] } gayrate-je **${ random }/10**.`);
         }
@@ -159,6 +162,7 @@ client.on('message', message => {
     }
     
      if (msg.startsWith(PREFIX + 'g')) {
+         message.delete();
          var allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
          return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
     }
