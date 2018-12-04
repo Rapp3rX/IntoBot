@@ -158,6 +158,11 @@ client.on('message', message => {
         return message.channel.send(`A gayrate-ed ${ random }/10.`);
     }
     
+     if (msg.startsWith(PREFIX + 'g')) {
+         var allstring = msg.replace(PREFIX + 'g','');
+         return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
+    }
+    
     if (msg.startsWith('xd')) {
         const gifs = [
             'https://media1.tenor.com/images/dc74818034bdeb1cb1c8c136fb675ecf/tenor.gif?itemid=4519855',
