@@ -179,7 +179,7 @@ client.on('message', message => {
         message.channel.send(gifs[a]);
     }
 
-    const badWords = [ 'anyád', 'geci', 'kurva', 'fasz', 'köcsög', '4ny4d', 'homo', 'cigány' ];
+    const badWords = [ 'anyád', 'geci', 'fasz', 'köcsög', '4ny4d', 'homo', 'cigány' ];
 
     if (badWords.some(h => msg.indexOf(h) >= 0)) {
         message.delete();
