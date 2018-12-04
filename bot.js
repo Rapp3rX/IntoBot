@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
 const Giphy = require('./lib/giphy');
-
+const Icndb = require('./lib/icndb');
 const PREFIX = '.';
 
 let client = new Discord.Client();
@@ -120,7 +120,7 @@ client.on('message', message => {
     }
 
     if (msg.startsWith(PREFIX + 'parancsok')){
-        message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)\n - gif`);
+        message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)\n - gif\n- joke`);
     }
 
     if (msg.startsWith(PREFIX + 'zhjegy')) {
@@ -140,9 +140,18 @@ client.on('message', message => {
                 return message.channel.send('Egy váratlan hiba történt...');
             });
     }
+    
+    if (msg.startsWith(PREFIX + 'joke')){
+        Icndb()
+            .then(res => message.channel.send(res))
+            .catch(err => {
+                console.log(err.response.data);
+                return message.channel.send('Egy váratlan hiba történt...');
+            });
+    }
 
     if (msg.startsWith(PREFIX + 'gayrate')) {
-        const random = Math.floor(Math.random() * 10) + 1;
+        const random = Math.floor(Math.random() * 10);
         if (args[0]) {
             return message.channel.send(`${ args[0] } gayrate-je **${ random }/10**.`);
         }
