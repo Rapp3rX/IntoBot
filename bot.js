@@ -152,9 +152,8 @@ client.on('message', message => {
 
     if (msg.startsWith(PREFIX + 'gayrate')) {
         const random2 = Math.floor(Math.random() * 11);
-        const a = (random2==1) ? 40 : 11;
-        a = (random2==2) ? 2 : a;
-        const random = Math.floor(Math.random() * a);
+        const av = (random2==1) ? 40 : 11;
+        const random = Math.floor(Math.random() * av);
         if (args[0]) {
             return message.channel.send(`${ args[0] } gayrate-je **${ random }/10**.`);
         }
