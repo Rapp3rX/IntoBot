@@ -159,7 +159,7 @@ client.on('message', message => {
     }
     
      if (msg.startsWith(PREFIX + 'g')) {
-         var allstring = msg.replace(PREFIX + 'g','');
+         var allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
          return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
     }
     
