@@ -179,11 +179,22 @@ client.on('message', message => {
         message.channel.send(gifs[a]);
     }
 
-    const badWords = [ 'anyád', 'geci', 'kurva', 'fasz', 'köcsög', 'buzi', 'fuck', '4ny4d', 'homo', 'cigány' ];
+    const badWords = [ 'anyád', 'geci', 'kurva', 'fasz', 'köcsög', '4ny4d', 'homo', 'cigány' ];
 
     if (badWords.some(h => msg.indexOf(h) >= 0)) {
         message.delete();
         message.channel.send(`Töröltem ${ sender } üzenetét! Indok: Káromkodás`);
+    }
+    
+    const badWords2 = [ 'buzi', 'fuck', 'bazd', 'bassza' ];
+    
+    if (badWords2.some(h => msg.indexOf(h) >= 0)) {
+       message.delete();
+        var emessage = msg.replace('fuck','hug');
+        emessage = msg.replace('bazd','öleld');
+        emessage = msg.replace('bassza','ölelje');
+        emessage = msg.replace('buzi','homoszexuális');
+        message.channel.send(`${ sender } ezt szeretné mondani: ${ emessage }`);
     }
     
     
