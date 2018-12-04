@@ -142,7 +142,7 @@ client.on('message', message => {
     }
     
     if (msg.startsWith(PREFIX + 'joke')){
-        Icndb()
+        Icndb(sender)
             .then(res => message.channel.send(res))
             .catch(err => {
                 console.log(err.response.data);
