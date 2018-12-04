@@ -161,7 +161,7 @@ client.on('message', message => {
         return message.channel.send(`A gayrate-ed ${ random }/10.`);
     }
     
-     if (msg.startsWith(PREFIX + 'g')) {
+     if (msg.startsWith(PREFIX + 'google')) {
          message.delete();
          var allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
          return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
@@ -191,9 +191,9 @@ client.on('message', message => {
     if (badWords2.some(h => msg.indexOf(h) >= 0)) {
        message.delete();
         var emessage = msg.replace('fuck','hug');
-        emessage = msg.replace('bazd','öleld');
-        emessage = msg.replace('bassza','ölelje');
-        emessage = msg.replace('buzi','homoszexuális');
+        emessage = emessage.replace('bazd','öleld');
+        emessage = emessage.replace('bassza','ölelje');
+        emessage = emessage.replace('buzi','homoszexuális');
         message.channel.send(`${ sender } ezt szeretné mondani: ${ emessage }`);
     }
     
