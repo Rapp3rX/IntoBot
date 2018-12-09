@@ -178,27 +178,30 @@ client.on('message', message => {
         message.channel.send(gifs[a]);
     }
 
-    const badWords = [ 'anyád', 'geci', 'fasz', 'köcsög', '4ny4d', 'homo', 'cigány' ];
+    const adminRole = message.guild.roles.find('name', 'DiscordAdmin');
 
-    if (badWords.some(h => msg.indexOf(h) >= 0)) {
-        message.delete();
-        message.channel.send(`Töröltem ${ sender } üzenetét! Indok: Káromkodás`);
+    if (!message.member.roles.has(adminRole.id)) {
+        const badWords = [ 'anyád', 'geci', 'fasz', 'köcsög', '4ny4d', 'homo', 'cigány' ];
+
+        if (badWords.some(h => msg.indexOf(h) >= 0)) {
+            message.delete();
+            message.channel.send(`Töröltem ${ sender } üzenetét! Indok: Káromkodás`);
+        }
+
+        const badWords2 = [ 'buzi', 'fuck', 'bazd', 'bassza', 'baszott','kurva','kurvu'];
+
+        if (badWords2.some(h => msg.indexOf(h) >= 0)) {
+            message.delete();
+            let emessage = msg.replace('fuck','hug');
+            emessage = emessage.replace('bazd','öleld');
+            emessage = emessage.replace('bassza','ölelje');
+            emessage = emessage.replace('buzi','homoszexuális');
+            emessage = emessage.replace('kurva','éjszakai pillangó');
+            emessage = emessage.replace('kurvu','éjszakai pillangóz');
+            emessage = emessage.replace('baszott','ölelt');
+            message.channel.send(`${ sender } ezt szeretné mondani: ${ emessage }`);
+        }
     }
-    
-    const badWords2 = [ 'buzi', 'fuck', 'bazd', 'bassza', 'baszott','kurva','kurvu'];
-    
-    if (badWords2.some(h => msg.indexOf(h) >= 0)) {
-       message.delete();
-        var emessage = msg.replace('fuck','hug');
-        emessage = emessage.replace('bazd','öleld');
-        emessage = emessage.replace('bassza','ölelje');
-        emessage = emessage.replace('buzi','homoszexuális');
-        emessage = emessage.replace('kurva','éjszakai pillangó');
-        emessage = emessage.replace('kurvu','éjszakai pillangóz');
-        emessage = emessage.replace('baszott','ölelt');
-        message.channel.send(`${ sender } ezt szeretné mondani: ${ emessage }`);
-    }
-    
     
     const helloWords = [ 'lelép', 'good night',' jó8', 'jóccakát'];
 
