@@ -120,7 +120,23 @@ client.on('message', message => {
     }
 
     if (msg.startsWith(PREFIX + 'parancsok')){
-        message.channel.send(`Üdvözöllek!\nPrefix: ${ PREFIX }\nElérhető parancsok tőlem:\n- készítőd(Ki készített)\n- parancsok(Parancs lista)\n - gif\n- joke`);
+        const availableCommands = [
+            { name: 'készítőd', description: 'A bot készítője' },
+            { name: 'parancsok', description: 'Parancsok listája' },
+            { name: 'gif', description: 'Random gif elküldése keresési feltétel alapján' },
+            { name: 'joke', description: 'Vicc generálása' },
+            { name: 'zhjegy', description: 'Tudd meg, mennyi lesz a ZH jegyed' },
+            { name: 'gayrate', description: 'Tudd meg a gayrate-edet vagy valaki/valami másét' },
+            { name: 'google', description: 'LMGTFY linkek generálása adott keresési kritérium alapján' }
+        ];
+
+        let output = `Üdvözöllek!\nPrefix: ${ PREFIX }\n\n**Elérhető parancsok tőlem:**\n`;
+
+        availableCommands.forEach(cmd => {
+            output += `:small_orange_diamond: **${ cmd.name }** - ${ cmd.description }\n`;
+        });
+
+        message.channel.send(output);
     }
 
     if (msg.startsWith(PREFIX + 'zhjegy')) {
@@ -162,7 +178,7 @@ client.on('message', message => {
     
      if (msg.startsWith(PREFIX + 'google')) {
          message.delete();
-         var allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
+         const allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
          return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
     }
     
@@ -210,12 +226,12 @@ client.on('message', message => {
     }
 
     if (message.isMentioned(client.user)) {
-         var texts = [
-            'Igen, én vagyok! Esetleg szeretnél tőlem valamit '+sender+'? Mert akkor: .parancsok',
-            'Szép napunk van, nem igaz '+sender+'?',
-            'Hívtál '+sender+'? Mit szeretnél?'
+        const texts = [
+            `Igen, én vagyok! Esetleg szeretnél tőlem valamit, ${ sender }? Mert akkor: .parancsok`,
+            `Szép napunk van, nem igaz, ${ sender }?`,
+            `Hívtál, ${ sender }? Mit szeretnél?`
         ];
-        
+
         const a = Math.floor(Math.random() * texts.length);
         
         message.channel.send(texts[a]);
