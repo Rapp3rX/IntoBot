@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
 const Giphy = require('./lib/giphy');
 const Icndb = require('./lib/icndb');
+const Quote = require('./lib/quote.js');
+
 const PREFIX = '.';
 
 let client = new Discord.Client();
@@ -22,7 +24,7 @@ const play = (connection, message) => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame('on into.hu');
+  client.user.setActivity('on into.hu');
   client.user.setUsername('IntoBot');
 });
 
@@ -192,6 +194,19 @@ client.on('message', message => {
         const a = Math.floor(Math.random() * gifs.length);
 
         message.channel.send(gifs[a]);
+    }
+
+    if (msg.startsWith(PREFIX + 'q')) {
+        const id = args[0] || null;
+        const reply = args.splice(1).join(' ') || null;
+
+        const quote = new Quote({
+            id,
+            message,
+            reply
+        });
+
+        return quote.init();
     }
 
     const adminRole = message.guild.roles.find('name', 'DiscordAdmin');
