@@ -180,7 +180,7 @@ client.on('message', message => {
     
      if (msg.startsWith(PREFIX + 'google')) {
          message.delete();
-         const allstring = encodeURIComponent(msg.replace(PREFIX + 'g',''));
+         const allstring = encodeURIComponent(args.join(' '));
          return message.channel.send(`https://hu.lmgtfy.com/?q=${ allstring }`);
     }
     
