@@ -7,10 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "galosik",
+  "private": true,
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "discord.js": "^11.2.1",
+    "discord.js-minesweeper": "^1.0.2",
     "ffmpeg": "0.0.4",
     "node-vibrant": "^3.0.0",
     "opusscript": "0.0.4",

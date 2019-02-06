@@ -3,6 +3,7 @@ const YTDL = require('ytdl-core');
 const Giphy = require('./lib/giphy');
 const Icndb = require('./lib/icndb');
 const Quote = require('./lib/quote.js');
+const Minesweeper = require('discord.js-minesweeper');
 
 const PREFIX = '.';
 
@@ -207,6 +208,29 @@ client.on('message', message => {
         });
 
         return quote.init();
+    }
+
+    if (msg.startsWith(PREFIX + 'minesweeper') || msg.startsWith(PREFIX + 'aknakereso') || msg.startsWith(PREFIX + 'aknakereső')) {
+        const rows = parseInt(args[0], 10);
+        const columns = parseInt(args[1], 10);
+        const mines = parseInt(args[2], 10);
+
+        if (!rows) {
+            return message.channel.send(':warning: Kérlek, add meg a sorok számát.');
+        }
+
+        if (!columns) {
+            return message.channel.send(':warning: Kérlek, add meg az oszlopok számát.');
+        }
+
+        if (!mines) {
+            return message.channel.send(':warning: Kérlek, add meg az aknák számát.');
+        }
+
+        const minesweeper = new Minesweeper({ rows, columns, mines });
+        const matrix = minesweeper.start();
+        const reply = matrix || ':warning: Helytelen aknakereső adatokat adtál meg.';
+        return message.channel.send(reply);
     }
 
     const adminRole = message.guild.roles.find('name', 'DiscordAdmin');
