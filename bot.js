@@ -263,6 +263,12 @@ client.on('message', message => {
     if (helloWords.some(h => msg.indexOf(h) >= 0)) {
         message.channel.send(`Szép estét neked is ${ sender }!`);
     }
+    
+    const flipping_table = ['(╯°□°）╯︵ ┻━┻'];
+
+    if (flipping_table.some(h => msg.indexOf(h) >= 0)) {
+        message.channel.send(`┬─┬ノ( º _ ºノ)`);
+    }
 
     if (message.isMentioned(client.user)) {
         const texts = [
