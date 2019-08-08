@@ -197,6 +197,29 @@ client.on('message', message => {
         message.channel.send(gifs[a]);
     }
 
+    if (msg.startsWith('omg')) {
+        const gifs = [
+            'https://media3.giphy.com/media/11PntZ2zv3FzUs/giphy.gif'
+        ];
+
+        const a = Math.floor(Math.random() * gifs.length);
+
+        message.channel.send(gifs[a]);
+    }
+    
+    if (msg.startsWith('+1') || msg.startsWith('like')) {
+        const gifs = [
+            'https://media.giphy.com/media/kigfYxdEa5s1ziA2h1/giphy.gif',
+            'http://giphygifs.s3.amazonaws.com/media/akNcGSvWQRdQs/giphy.gif'
+        ];
+
+        const a = Math.floor(Math.random() * gifs.length);
+
+        message.channel.send(gifs[a]);
+    }
+    
+    
+    
     if (msg.startsWith(PREFIX + 'q')) {
         const id = args[0] || null;
         const reply = args.splice(1).join(' ') || null;
