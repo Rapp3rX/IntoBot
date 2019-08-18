@@ -218,6 +218,16 @@ client.on('message', message => {
         message.channel.send(gifs[a]);
     }
     
+    if (msg.startsWith('wtf')) {
+        const gifs = [
+            'https://media.tenor.com/images/ff4b2ce51a02a7646d5c76a22847d365/tenor.gif'
+        ];
+
+        const a = Math.floor(Math.random() * gifs.length);
+
+        message.channel.send(gifs[a]);
+    }
+    
     
     
     if (msg.startsWith(PREFIX + 'q')) {
