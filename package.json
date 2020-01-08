@@ -10,7 +10,7 @@
   "private": true,
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.1",
     "discord.js": "^11.2.1",
     "discord.js-minesweeper": "^1.0.5",
     "node-vibrant": "^3.1.5",
