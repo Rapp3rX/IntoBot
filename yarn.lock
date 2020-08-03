@@ -184,9 +184,9 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
-discord.js-minesweeper@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/discord.js-minesweeper/-/discord.js-minesweeper-1.0.5.tgz#9ffcf170843b64da9ac5241245fc2ae1102dc3c2"
+discord.js-minesweeper@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/discord.js-minesweeper/-/discord.js-minesweeper-1.0.6.tgz#ca0aaf9b91ed6ede89a0d9628d90e569b17464e5"
 
 discord.js@^12.2.0:
   version "12.2.0"
